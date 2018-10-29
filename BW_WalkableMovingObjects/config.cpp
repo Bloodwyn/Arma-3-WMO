@@ -4,7 +4,8 @@ class CfgPatches
 	{
 		units[]=
 		{
-			"BW_roadway_obj"
+			"BW_roadway_obj",
+			"BW_roadway_obj_debug"
 		};
 		requiredVersion=1;
 		requiredAddons[]=
@@ -21,16 +22,31 @@ class CfgFunctions
 		class BW_WalkableMovingObjects
 		{
 			file="\BW_WalkableMovingObjects";
-
-			class initWMO{postInit=1;};
-			class setPosi{};
-			class walkonstuff2{};
-			class nearPlayers{};
-			class collision{};
-			class getParent{};
-			class isWmoObject{};
-			class leave{};
-			class isWalkableSurface{};
+			class initWMO
+			{
+				postInit=1;
+			};
+			class setPosi
+			{
+			};
+			class collision
+			{
+			};
+			class handleDamage
+			{
+			};
+			class getParent
+			{
+			};
+			class isWmoObject
+			{
+			};
+			class leave
+			{
+			};
+			class exit
+			{
+			};
 		};
 	};
 };
@@ -40,8 +56,20 @@ class CfgVehicles
 	class BW_roadway_obj: Items_base_F
 	{
 		scope=2;
-		author="badbenson";
+		author="Bloodwyn";
 		model="\BW_WalkableMovingObjects\rw.p3d";
+		displayName="Inivisible Roadway LOD for the adaptive roadway";
+		vehicleClass="Objects";
+		armor=20000;
+		icon="iconObject";
+		mapSize=0.69999999;
+		accuracy=0.2;
+	};
+	class BW_roadway_obj_debug: Items_base_F
+	{
+		scope=2;
+		author="Bloodwyn";
+		model="\BW_WalkableMovingObjects\rw_debug.p3d";
 		displayName="Inivisible Roadway LOD for the adaptive roadway";
 		vehicleClass="Objects";
 		armor=20000;

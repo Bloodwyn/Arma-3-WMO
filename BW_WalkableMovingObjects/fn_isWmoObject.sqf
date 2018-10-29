@@ -7,7 +7,7 @@
 
 _obj = param [0, objNull, [objNull]];
 
-if (_obj isKindOf "car" || _obj isKindOf "air" || _obj isKindOf "ship")exitWith{true};
+if (_obj isKindOf "landvehicle" || _obj isKindOf "air" || _obj isKindOf "ship")exitWith{true};
 
 if (_obj in WMO_specialObjects)exitWith{true};
 
