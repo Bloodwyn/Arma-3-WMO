@@ -19,7 +19,7 @@ _no = _upmost select 1;
 _obj = _upmost select 2;
 
 
-if (isNull _obj) exitWith {call BW_WMO_fnc_exit; BW_WMO_help setpos [0,0,0];};
+if !([_obj]call BW_WMO_fnc_getsRoadway) exitWith {call BW_WMO_fnc_exit; BW_WMO_help setpos [0,0,0];};
 
 _helperpos = _pos;
 if(!isNull BW_anker)then{
@@ -44,7 +44,7 @@ if (_obj isEqualTo BW_anker)then{
 
     _searchCollPos1 = eyepos player;
     _searchCollPos2 = eyepos player;
-    if !(animationState player isEqualTo "aovrpercmstpsraswrfldf")then{
+    if !((animationState player) in ["aovrpercmstpsraswrfldf","aovrpercmstpsnonwnondf","aovrpercmstpslowwrfldf"])then{  //not V hopping
         _searchCollPos1 = _posWorld vectoradd [0,0,0.6];
     };
 
@@ -60,7 +60,13 @@ if (_obj isEqualTo BW_anker)then{
             )
         >0)
     )then{
-        _temp = _temp vectoradd (_vel vectorMultiply -0.02);
+        _xToCenter = (BW_anker worldToModelVisual _posWorld)#0;
+        _vec = BW_anker vectorModelToWorld [-_xToCenter,0,0];
+        _line1 = [BW_anker,"GEOM"]intersect[_searchCollPos1,_searchCollPos1 vectoradd _vel] select {(_x#0) find "ladder_" > -1};
+        _line2 = [BW_anker,"GEOM"]intersect[_searchCollPos1,_searchCollPos1 vectoradd _vec] select {(_x#0) find "ladder_" > -1};
+        if (_line2 isEqualTo [] && _line1 isEqualTo [])then{
+            _temp = _temp vectoradd (_vel vectorMultiply -0.02);
+        };
     };
 
 

@@ -4,8 +4,7 @@ class CfgPatches
 	{
 		units[]=
 		{
-			"BW_roadway_obj",
-			"BW_roadway_obj_debug"
+			"BW_roadway_obj"
 		};
 		requiredVersion=1;
 		requiredAddons[]=
@@ -22,31 +21,16 @@ class CfgFunctions
 		class BW_WalkableMovingObjects
 		{
 			file="\BW_WalkableMovingObjects";
-			class initWMO
-			{
-				postInit=1;
-			};
-			class setPosi
-			{
-			};
-			class collision
-			{
-			};
-			class handleDamage
-			{
-			};
-			class getParent
-			{
-			};
-			class isWmoObject
-			{
-			};
-			class leave
-			{
-			};
-			class exit
-			{
-			};
+
+			class initWMO{postInit=1;};
+			class setPosi{};
+			class collision{};
+			class handleDamage{};
+			class getParent{};
+			class isWmoObject{};
+			class leave{};
+			class exit{};
+			class getsRoadway{};
 		};
 	};
 };
