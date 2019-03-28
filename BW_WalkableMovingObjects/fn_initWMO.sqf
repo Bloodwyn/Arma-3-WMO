@@ -19,7 +19,7 @@ if (isNil "WMO_noRoadway")then{WMO_noRoadway=[]}; //for objects that are not typ
         ["EH_em_walkonstuff"] call babe_core_fnc_removeEH;
         babe_em_help setposasl [0,0,0];
     };
-    if !(isNull (configfile >> "ACEX_Fortify_Presets"))then{
+    if !(isNull (configfile >> "CfgPatches" >> "acex_sitting"))then{
         WMO_noRoadway = WMO_noRoadway + ["Land_OfficeChair_01_F","Land_ChairWood_F","Land_RattanChair_01_F","Land_CampingChair_V2_F","Land_CampingChair_V2_white_F","Land_ChairPlastic_F","Land_CampingChair_V1_F","Land_Bench_01_F","Land_Bench_02_F","Land_Bench_03_F","Land_Bench_04_F","Land_Bench_05_F"];
     };
     //["walkHandler","onEachFrame",BW_WMO_fnc_setPosi] call BIS_fnc_addStackedEventHandler;
