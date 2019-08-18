@@ -50,7 +50,7 @@ if (_obj isEqualTo BW_anker)then{
 
     //sorry for that check. Its the collsion stuff
     if(
-        ({!isNull (_x select 2) && (_x select 0) distance _searchCollPos1 < 0.5} count (
+        ({!isNull (_x select 2) && (_x select 0) distance _searchCollPos1 < 0.5 && (_x#1)#2 < .5} count (
             (lineIntersectsSurfaces [_searchCollPos1,_searchCollPos1 vectoradd _vel,player,objNull,true,1,"GEOM"])+
             (lineIntersectsSurfaces [_searchCollPos1,_searchCollPos1 vectoradd ([_vel,-30]call BIS_fnc_rotateVector2D),player,objNull,true,1,"GEOM"])+
             (lineIntersectsSurfaces [_searchCollPos1,_searchCollPos1 vectoradd ([_vel,30]call BIS_fnc_rotateVector2D),player,objNull,true,1,"GEOM"])+
@@ -91,6 +91,7 @@ if (_obj isEqualTo BW_anker)then{
     prevDirAnker = getDir BW_anker;
 }else{  //new object beneath
     //systemChat "new";
+    BW_WMO_exit apply {BW_anker call _x;};
     if ([_obj] call BW_WMO_fnc_isWmoObject)then{
         BW_anker = _obj;
         BW_WMO_enter apply {_obj call _x;};
