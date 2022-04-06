@@ -26,7 +26,7 @@ if (isNil "WMO_noRoadway")then{WMO_noRoadway=[]}; //for objects that are not typ
         WMO_noRoadway = WMO_noRoadway + ["Land_OfficeChair_01_F","Land_ChairWood_F","Land_RattanChair_01_F","Land_CampingChair_V2_F","Land_CampingChair_V2_white_F","Land_ChairPlastic_F","Land_CampingChair_V1_F","Land_Bench_01_F","Land_Bench_02_F","Land_Bench_03_F","Land_Bench_04_F","Land_Bench_05_F"];
     };
     //["walkHandler","onEachFrame",BW_WMO_fnc_setPosi] call BIS_fnc_addStackedEventHandler;
-    addMissionEventHandler ["EachFrame",BW_WMO_fnc_setPosi];//because of exile. Thanks NiiRoZz
+    BW_WMO_MISSIONEVHID = addMissionEventHandler ["EachFrame",BW_WMO_fnc_setPosi];//because of exile. Thanks NiiRoZz
 };
 
 if (isNil "BW_WMO_enter")then{BW_WMO_enter=[]};
