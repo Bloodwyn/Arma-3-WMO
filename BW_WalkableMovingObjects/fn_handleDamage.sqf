@@ -4,6 +4,7 @@ if (!local _unit) exitwith {};
 if (isNull BW_anker && BW_WMO_collision) exitwith {};
 
 if(_source isEqualTo player && _projectile isEqualTo "" && isnull _instigator)then{
+	   player disableCollisionWith BW_anker;
 	   0;
 }else{
 	_damage;
