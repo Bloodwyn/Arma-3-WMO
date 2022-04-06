@@ -7,9 +7,10 @@
 
 if !(hasInterface)exitWith{};
 
-WMO_Enabled = true;
 
 diag_log "-----Starting WMO-----";
+
+if (isNil "WMO_Enabled")then{WMO_Enabled = true;}; //for mission makers to enable/disable WMO on the fly
 
 if (isNil "WMO_specialObjects")then{WMO_specialObjects=[]}; //for objects that are not typeOf car/air/ship Now also works with classname or modelinfo select 1
 
