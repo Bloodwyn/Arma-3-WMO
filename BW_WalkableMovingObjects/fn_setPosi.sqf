@@ -4,6 +4,9 @@
     Description:
     Main handler for WMO
 */
+
+if !(WMO_Enabled) exitWith BW_WMO_fnc_exit;
+
 if !(vehicle player isEqualTo player) exitWith BW_WMO_fnc_exit; //looks ugly but works. Even Poseidon thinks thats wrong
 
 _posWorld = getPosWorld player;
