@@ -5,6 +5,8 @@
     Main handler for WMO
 */
 
+if !(WMO_Enabled) exitWith{if !(isNull BW_anker)then{[BW_anker,true] call BW_WMO_fnc_collision;BW_anker = objNull;}}; // I just want to end it here cause we are not enabled yet
+
 if !(vehicle player isEqualTo player)exitWith{if !(isNull BW_anker)then{[BW_anker,true] call BW_WMO_fnc_collision;BW_anker = objNull;}};
 
 _line=(lineIntersectsSurfaces [getposworld player vectoradd [0,0,0],getposasl player vectoradd [0,0,-1.5],player,objNull,true,-1,"GEOM"])select {!isNull (_x select 3)};
