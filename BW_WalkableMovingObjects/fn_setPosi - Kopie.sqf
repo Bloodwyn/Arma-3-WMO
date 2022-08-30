@@ -9,6 +9,14 @@ if !(WMO_Enabled) exitWith{if !(isNull BW_anker)then{[BW_anker,true] call BW_WMO
 
 if !(vehicle player isEqualTo player)exitWith{if !(isNull BW_anker)then{[BW_anker,true] call BW_WMO_fnc_collision;BW_anker = objNull;}};
 
+// Ace Fatigue recovery aid
+if(!(isNil "ace_advanced_fatigue_anReserve")) then {
+    ace_advanced_fatigue_anReserve = ace_advanced_fatigue_anReserve + (ace_advanced_fatigue_recoveryFactor * 0.8);
+    if(ace_advanced_fatigue_anReserve >= 2300) then {
+        ace_advanced_fatigue_anReserve = 2300;
+    };
+};
+
 _line=(lineIntersectsSurfaces [getposworld player vectoradd [0,0,0],getposasl player vectoradd [0,0,-1.5],player,objNull,true,-1,"GEOM"])select {!isNull (_x select 3)};
 
 if (count _line isEqualTo 0)exitWith{

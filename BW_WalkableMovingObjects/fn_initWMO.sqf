@@ -17,9 +17,11 @@ if (isNil "WMO_noRoadway")then{WMO_noRoadway=[]}; //for objects that are not typ
 
 0 spawn{
     waitUntil {time > 1};
-    if !(isNil "babe_em_fnc_walkonstuff")then{
+    if !(isNil "babe_em_fnc_walkonstuff") then {
         ["EH_em_walkonstuff"] call babe_core_fnc_removeEH;
-        babe_em_help setposasl [0,0,0];
+        if !(isNil "babe_em_help") then {
+            babe_em_help setposasl [0,0,0];
+        };
     };
     WMO_noRoadway = WMO_noRoadway + ["NonSteerable_Parachute_F","Steerable_Parachute_F","B_Parachute_02_F","O_Parachute_02_F","I_Parachute_02_F"];
     if !(isNull (configfile >> "CfgPatches" >> "acex_sitting"))then{

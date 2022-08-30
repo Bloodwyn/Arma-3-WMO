@@ -24,6 +24,14 @@ _obj = _upmost select 2;
 
 if !([_obj]call BW_WMO_fnc_getsRoadway) exitWith {call BW_WMO_fnc_exit; BW_WMO_help setpos [0,0,0];};
 
+// Ace Fatigue recovery aid
+if(!(isNil "ace_advanced_fatigue_anReserve")) then {
+    ace_advanced_fatigue_anReserve = ace_advanced_fatigue_anReserve + (ace_advanced_fatigue_recoveryFactor * 0.8);
+    if(ace_advanced_fatigue_anReserve >= 2300) then {
+        ace_advanced_fatigue_anReserve = 2300;
+    };
+};
+
 _helperpos = _pos;
 if(!isNull BW_anker)then{
     _f = (_no vectorDotProduct (velocity BW_anker));
