@@ -22,7 +22,7 @@ if (isNil "WMO_noRoadway")then{WMO_noRoadway=[]}; //for objects that are not typ
         ["EH_em_walkonstuff"] call babe_core_fnc_removeEH;
         babe_em_help setposasl [0,0,0];
     };
-    WMO_noRoadway = WMO_noRoadway + ["NonSteerable_Parachute_F","Steerable_Parachute_F","B_Parachute_02_F","O_Parachute_02_F","I_Parachute_02_F"];
+    WMO_noRoadway = WMO_noRoadway + ["NonSteerable_Parachute_F","Steerable_Parachute_F","B_Parachute_02_F","O_Parachute_02_F","I_Parachute_02_F","RopeSegment"];
     if !(isNull (configfile >> "CfgPatches" >> "acex_sitting"))then{
         WMO_noRoadway = WMO_noRoadway + ["Land_OfficeChair_01_F","Land_ChairWood_F","Land_RattanChair_01_F","Land_CampingChair_V2_F","Land_CampingChair_V2_white_F","Land_ChairPlastic_F","Land_CampingChair_V1_F","Land_Bench_01_F","Land_Bench_02_F","Land_Bench_03_F","Land_Bench_04_F","Land_Bench_05_F"];
     };
